@@ -5,9 +5,17 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
 }
+html {
+}
+
 body{
     display: flex;
     justify-content: center;
+    background: url('../images/bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 table {
     overflow: hidden;
@@ -20,6 +28,7 @@ table {
     -moz-box-shadow: 0px 0px 10px 2px rgba(50, 50, 50, 0.4);
     box-shadow: 0px 0px 10px 2px rgba(50, 50, 50, 0.4);
     margin: 20px;
+    background: #545454;
 }
 
 td {
@@ -54,7 +63,7 @@ td.active:hover .line.x-y:before {
     position: absolute;
     display: inline;
     height: 2px;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(255, 255, 255, 0.55);
     width: 10000px;
     left: -5000px;
     top: 30px;
@@ -64,7 +73,7 @@ td.active:hover .line.x-y:after {
     position: absolute;
     display: inline;
     height: 2px;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(255, 255, 255, 0.55);
     width: 10000px;
     left: -5022px;
     transform-origin: center;
@@ -75,7 +84,7 @@ td.active:hover .line.line-45deg {
     position: absolute;
     display: inline;
     height: 2px;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(255, 255, 255, 0.55);
     width: 10000px;
     left: -5000px;
     top: 0px;
@@ -86,7 +95,7 @@ td.active:hover .line.line-45deg- {
     position: absolute;
     display: inline;
     height: 2px;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(255, 255, 255, 0.55);
     width: 10000px;
     left: -5000px;
     top: 70px;
