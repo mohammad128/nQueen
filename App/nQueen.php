@@ -65,10 +65,20 @@ class nQueen
         return $this->board;
     }
 
-    public function debug()
+    public function printBoard()
+    {
+        $this->debug($this->board);
+    }
+
+    public function printFilled()
+    {
+        $this->debug($this->filled);
+    }
+
+    public function debug($var)
     {
         echo "\n<pre style=\"background: #FFFF99; font-size: 10px;\">\n";
-        $var = print_r($this->filled, true);
+        $var = print_r($var, true);
         echo $var . "\n</pre>\n";
     }
 }

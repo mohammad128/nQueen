@@ -1,8 +1,16 @@
+*{
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
 body{
     display: flex;
     justify-content: center;
 }
 table {
+    overflow: hidden;
     font-size: 3em;
     color: #333;
     border: 3px solid #666;
@@ -15,13 +23,73 @@ table {
 }
 
 td {
+    cursor: pointer;
     background: #ffe7aa;
     height: 70px;
     width: 70px;
     text-align: center;
+    transition: all .3s;
+}
+
+td:hover {
+    box-shadow: 0 0 24px #eee;
+    outline: 2px solid #eee;
 }
 
 tr:nth-child(odd) td:nth-child(even),
 tr:nth-child(even) td:nth-child(odd) {
     background: #d4b66a;
+}
+
+td.active{
+    position: relative;
+    justify-content: center;
+}
+
+td.active .line.x-y {
+    position: relative;
+}
+td.active:hover .line.x-y:before {
+    content: '';
+    position: absolute;
+    display: inline;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.55);
+    width: 10000px;
+    left: -5000px;
+    top: 30px;
+}
+td.active:hover .line.x-y:after {
+    content: '';
+    position: absolute;
+    display: inline;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.55);
+    width: 10000px;
+    left: -5022px;
+    transform-origin: center;
+    top: 30px;
+    transform: rotate(90deg);
+}
+td.active:hover .line.line-45deg {
+    position: absolute;
+    display: inline;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.55);
+    width: 10000px;
+    left: -5000px;
+    top: 0px;
+    transform-origin: center;
+    transform: rotate(45deg);
+}
+td.active:hover .line.line-45deg- {
+    position: absolute;
+    display: inline;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.55);
+    width: 10000px;
+    left: -5000px;
+    top: 70px;
+    transform-origin: center;
+    transform: rotate(-45deg);
 }

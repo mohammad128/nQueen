@@ -7,95 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>n-Queen</title>
     <link rel="stylesheet" href="assets/styles/style.css">
+    <script defer src="assets/js/app.js"></script>
 </head>
 <body>
 <?php
 require_once __DIR__.'/App/nQueen.php';
-$queen = new nQueen(0, 0);
-$queen->run()->debug();
+$x = $_GET['x']??0;
+$y = $_GET['y']??0;
+$queen = new nQueen($x, $y);
+$board = $queen->run()->getBoard();
 ?>
-    <table class="qqcoisa">
-        <tr>
-            <td>&#9820;</td>
-            <td>&#9822;</td>
-            <td>&#9821;</td>
-            <td>&#9819;</td>
-            <td>&#9818;</td>
-            <td>&#9821;</td>
-            <td>&#9822;</td>
-            <td>&#9820;</td>
-        </tr>
-        <tr>
-            <td>&#9823;</td>
-            <td>&#9823;</td>
-            <td>&#9823;</td>
-            <td>&#9823;</td>
-            <td>&#9823;</td>
-            <td>&#9823;</td>
-            <td>&#9823;</td>
-            <td>&#9823;</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>&#9817;</td>
-            <td>&#9817;</td>
-            <td>&#9817;</td>
-            <td>&#9817;</td>
-            <td>&#9817;</td>
-            <td>&#9817;</td>
-            <td>&#9817;</td>
-            <td>&#9817;</td>
-        </tr>
-        <tr>
-            <td>&#9814;</td>
-            <td>&#9816;</td>
-            <td>&#9815;</td>
-            <td>&#9813;</td>
-            <td>&#9812;</td>
-            <td>&#9815;</td>
-            <td>&#9816;</td>
-            <td>&#9814;</td>
-        </tr>
-    </table>
-
+<table class="qqcoisa">
+    <?php
+    for ($y=0; $y<count($board); $y++)
+    {
+        echo "<tr>";
+        for ($x=0; $x<count($board[$y]); $x++)
+        {
+            $active = false;
+            if (!empty($board[$y][$x]))
+                $active = 'active';
+            $char = $active ? '♛' : '';
+            echo <<<HTML
+                <td onclick="setItem({$x}, {$y})" class='item {$active}'>
+                    {$char}
+                    <span class='line x-y'></span>
+                    <span class='line line-45deg'></span>
+                    <span class='line line-45deg-'></span>
+                </td>
+            HTML;
+        }
+        echo "</tr>";
+    }
+    ?>
+    <!--♜	♞	♝	♛	♚	♝	♞	♜-->
+    <!--♟	♟	♟	♟	♟	♟	♟	♟-->
+    <!--♙	♙	♙	♙	♙	♙	♙	♙-->
+    <!--♖	♘	♗	♕	♔	♗	♘	♖-->
+</table>
 </body>
 </html>
